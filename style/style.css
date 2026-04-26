@@ -202,22 +202,6 @@ a{
     text-decoration:none;
 }
 
-.projet{
-    min-height: 110vh;
-    padding: 70px;
-    background: url("../img/bg_damier_sombre.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-.projet h2{
-    text-align:center;
-    font-size:38px;
-    color: white;
-    margin-bottom:60px;
-    
-    font-weight: 300;
-}
 .jouer p{
     text-align:center;
     font-size:18px; 
@@ -231,19 +215,68 @@ a{
     margin-top:20px;
     color:white;
 }
-
 .footer{
-    margin-top:150px;
-    padding:30px;
-    text-align:center;
-    background: url("../img/bg2.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color:white;
+    background: #0d0d0d;
+    color: white;
+    padding: 60px 20px 20px;
+    font-family: Arial, sans-serif;
 }
 
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
+    flex-wrap: wrap;
+}
 
+.footer-left,
+.footer-center,
+.footer-right{
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer h3{
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffcc00;
+}
+
+.footer h4{
+    margin-bottom: 15px;
+    color: #ffcc00;
+}
+
+.footer p{
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+.footer a{
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer a:hover{
+    color: #ffcc00;
+    transform: translateX(5px);
+}
+
+.footer-bottom{
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+    font-size: 13px;
+    color: #888;
+}
 
 
 
@@ -384,4 +417,60 @@ button{
     font-size:16px;
     line-height:1.6;
     color:#333;
+}
+
+
+.projet{
+    min-height: 110vh;
+    background: url("../img/bg_damier_sombre2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color:white;
+    text-align: center;
+    align-content: center;
+}
+
+.projet-container{
+    max-width: 900px;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    width: 60%;
+    padding: 70px 50px;
+    justify-self: right;
+}
+
+.projet-container h2{
+    text-align:center;
+    font-size:38px;
+    color: white;
+    margin-bottom:60px;
+    
+    font-weight: 300;
+    
+}
+
+.projet-container p{
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+    
+}
+
+.repo-link{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: #ffcc00;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.repo-link:hover{
+    background: #e6b800;
 }

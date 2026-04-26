@@ -55,7 +55,8 @@
 
                 <a href="./pages/connexion.html" class="btn">Se connecter</a>
 
-                <a href="#" target="_blank" class="btn">Télécharger l'application</a>
+                <a href="https://github.com/AnisAb2002/kartbot_web/blob/main/apk/kartbot.apk" 
+                target="_blank" class="btn">Télécharger l'application</a>
 
             </div>
         </div>
@@ -63,29 +64,70 @@
 
     <section class="projet">
 
-        <h2>À propos du projet</h2>
+        <div class="projet-container">
 
-        <p>
-            Ce projet consiste à piloter une voiture sur un circuit réel en utilisant
-            une application mobile comme télécommande. Les joueurs doivent compléter
-            plusieurs tours en évitant les collisions et en réalisant le meilleur temps
-            possible afin d'améliorer leur classement.
-        </p>
+            <h2>À propos du projet</h2>
 
-        <a href="https://github.com/AnisAb2002/kartbot" class="repo-link">
-            Voir le projet sur GitHub
-        </a>
+            <p>
+                KartBot est un système de robotique basé sur un <strong>Raspberry Pi 3</strong>
+                et un robot <strong>GoPiGo3</strong>, conçu pour être piloté à distance via une
+                application mobile développée avec <strong>Android Studio (Kotlin)</strong>.
+            </p>
+
+            <p>
+                Le robot évolue sur un circuit réel, tandis que l’application mobile permet
+                de contrôler la conduite en temps réel. Chaque course est enregistrée afin de
+                calculer les performances du joueur : temps des tours, collisions, distances
+                parcourues et score final.
+            </p>
+
+            <p>
+                Le site web complète le système en permettant aux utilisateurs de :
+                consulter leurs statistiques, suivre leurs scores, comparer leurs performances
+                et visualiser le circuit en 3D.
+            </p>
+
+            <a href="https://github.com/AnisAb2002/kartbot_web" target="_blank" class="repo-link">
+                Voir le projet sur GitHub
+            </a>
+
+        </div>
 
     </section>
 
 
-
     <footer class="footer">
 
+        <div class="footer-container">
 
-        <a href="https://github.com/ton-repo">
-            Repository GitHub du projet
-        </a>
+            <div class="footer-left">
+                <h3>KartBot</h3>
+                <p>
+                    Projet robotique basé sur GoPiGo3 et Raspberry Pi 3,
+                    piloté via application mobile Android (Kotlin) et supervisé via un site web.
+                </p>
+            </div>
+
+            <div class="footer-center">
+                <h4>Navigation</h4>
+                <a href="./index.html">Accueil</a>
+                <a href="./pages/stats.html">Stats</a>
+                <a href="./pages/scores.html">Scores</a>
+                <a href="./pages/circuit.html">Circuit</a>
+            </div>
+
+            <div class="footer-right">
+                <h4>Projet</h4>
+                <a href="https://github.com/AnisAb2002/kartbot_web" target="_blank">
+                    Repository GitHub
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 KartBot — Tous droits réservés</p>
+        </div>
 
     </footer>
 
