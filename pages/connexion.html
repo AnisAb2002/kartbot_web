@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../style/style.css">
+    <title>KarBot - Connexion</title>
+</head>
+
+<body class="bg-damier">
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../img/kartbot_logo_black.png" alt="logo">
+            </a>
+        </div>
+
+        <ul class="menu">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="./stats.html">Stats</a></li>
+            <li><a href="./scores.html">Scores</a></li>
+            <li><a href="./regles.html">Règles</a></li>
+            <li><a href="./circuit.html">Circuit</a></li>
+        </ul>
+
+        <div class="profile">
+            <a href="./connexion.html" id="userName"></a> 
+
+            <a href="./connexion.html" class="profile-link">
+                <img src="../img/profil.png" alt="profil">
+            </a>
+        </div>
+    </nav>
+
+    <!-- ===================== -->
+    <!-- SECTION NON CONNECTÉ -->
+    <!-- ===================== -->
+    <div id="loginSection" class="section-form">
+
+        <div class="form-container">
+            <h2>Connexion</h2>
+
+            <form id="loginForm">
+
+                <div class="input-group">
+                    <label>Login</label>
+                    <input type="text" id="log" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mot de passe</label>
+                    <input type="password" id="pwd" required>
+                </div>
+
+                <button type="submit">Se connecter</button>
+            </form>
+
+            <p class="link">
+                Pas de compte ?
+                <a href="inscription.html">Créer un compte</a>
+            </p>
+        </div>
+
+    </div>
+
+    <!-- ===================== -->
+    <!-- SECTION CONNECTÉ -->
+    <!-- ===================== -->
+    <div id="userSection" class="section-form" style="display:none;">
+
+        <div class="form-container">
+
+            <h2>Mon profil</h2>
+
+            <p><strong>Utilisateur :</strong> <span id="profileName"></span></p>
+
+            <hr>
+
+            <h3>Changer mot de passe</h3>
+
+            <form id="changePasswordForm">
+
+                <div class="input-group">
+                    <label>Ancien mot de passe</label>
+                    <input type="password" id="oldPwd" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Nouveau mot de passe</label>
+                    <input type="password" id="newPwd" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Confirmer nouveau mot de passe</label>
+                    <input type="password" id="confirmNewPwd" required>
+                </div>
+
+                <button type="submit">Modifier</button>
+            </form>
+
+            <br>
+
+            <button id="logoutBtn">Déconnexion</button>
+
+        </div>
+
+    </div>
+
+    <script type="module" src="../scripts/script.js"></script>
+</body>
+</html>

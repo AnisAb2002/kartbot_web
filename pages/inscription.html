@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../style/style.css">
+    <title>KarBot - Inscription</title>
+</head>
+<body class="bg-damier">
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../index.html"><img src="../img/kartbot_logo_black.png" alt="logo"></a>
+        </div>
+
+        <ul class="menu">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="./stats.html">Stats</a></li>
+            <li><a href="./scores.html">Scores</a></li>
+            <li><a href="./regles.html">Règles</a></li>
+            <li><a href="./circuit.html">Circuit</a></li>
+        </ul>
+
+        <div class="profile">
+            <a href="./connexion.html" id="userName"></a> 
+
+            <a href="./connexion.html" class="profile-link">
+                <img src="../img/profil.png" alt="profil">
+            </a>
+        </div>
+    </nav>
+
+    <div class="section-form">
+        <div class="form-container">
+
+            <h2>Inscription</h2>
+
+            <form id="registerForm">
+
+                <div class="input-group">
+                    <label>Login</label>
+                    <input type="text" id="login" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mot de passe</label>
+                    <input type="password" id="password" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Confirmation mot de passe</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+
+                <button type="submit">S'inscrire</button>
+
+            
+            </form>
+
+            <p class="link">
+                Déjà un compte ?
+                <a href="connexion.html">Se connecter</a>
+            </p>
+
+        </div>
+    </div>
+
+    <script type="module" src="../scripts/script.js"></script>
+    
+</body>
+</html>

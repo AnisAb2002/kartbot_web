@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../style/style.css">
+    <title>KartBot - Règles</title>
+</head>
+<body class="bg-damier">
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../index.html"><img src="../img/kartbot_logo_black.png" alt="logo"></a>
+        </div>
+
+        <ul class="menu">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="./stats.html">Stats</a></li>
+            <li><a href="./scores.html">Scores</a></li>
+            <li><a class="active" href="./regles.html">Règles</a></li>
+            <li><a href="./circuit.html">Circuit</a></li>
+        </ul>
+
+        <div class="profile">
+            <a href="./connexion.html" id="userName"></a> 
+
+            <a href="./connexion.html" class="profile-link">
+                <img src="../img/profil.png" alt="profil">
+            </a>
+        </div>
+    </nav>
+
+    <section class="regles">
+
+        <h1>Règles du Jeu</h1>
+
+        <div class="rule">
+            <h2>1. Création d’un compte</h2>
+            <p>
+            Pour participer, chaque joueur doit créer un compte. 
+            Le compte permet d’enregistrer les scores, les statistiques 
+            et le classement des joueurs.
+            </p>
+        </div>
+
+        <div class="rule">
+            <h2>2. Objectif du jeu</h2>
+            <p>
+            Le but est de terminer le circuit dans le temps le plus court possible 
+            tout en évitant les collisions avec les obstacles et les murs.
+            </p>
+        </div>
+
+        <div class="rule">
+            <h2>3. Nombre de tours</h2>
+            <p>
+            Chaque partie comporte un nombre défini de tours. 
+            Tous les tours doivent être complétés pour que le score soit validé.
+            </p>
+        </div>
+
+        <div class="rule">
+            <h2>4. Collisions et pénalités</h2>
+            <p>
+            Chaque collision entraîne un malus de temps. 
+            Plus le nombre de collisions est élevé, plus la pénalité augmente.
+            </p>
+        </div>
+
+        <div class="rule">
+            <h2>5. Temps de parcours</h2>
+            <p>
+            Le classement dépend principalement du temps total réalisé sur le circuit.
+            Le joueur doit essayer d’obtenir le temps le plus court possible.
+            </p>
+        </div>
+
+        <div class="rule">
+            <h2>6. Contrôle du véhicule</h2>
+            <p>
+            La voiture doit être contrôlée uniquement depuis le téléphone via l’application.
+            Aucun autre appareil ne doit être utilisé.
+            </p>
+        </div>
+
+        <div class="rule">
+            <h2>7. Interaction avec la voiture</h2>
+            <p>
+            Il est interdit de toucher la voiture sur le circuit réel ou de la regarder directement.
+            Le joueur doit se baser uniquement sur l’interface de l’application.
+            </p>
+        </div>
+
+        <div class="rule">
+            <h2>8. Respect du circuit</h2>
+            <p>
+            Le joueur doit rester sur la piste. Sortir du circuit ou couper le tracé
+            peut entraîner une pénalité ou l’annulation du tour.
+            </p>
+        </div>
+
+        <div class="rule">
+            <h2>9. Fair-play</h2>
+            <p>
+            Toute tentative de triche, de manipulation du circuit ou de perturbation
+            d’un autre joueur est interdite.
+            </p>
+        </div>
+
+    </section>
+
+    
+    <script type="module" src="../scripts/script.js">
+    window.addEventListener("load", () => {
+        const user = localStorage.getItem("user");
+        const userName = document.getElementById("userName");
+
+        console.log("user =", user);
+        console.log("element =", userName);
+
+        if(userName){
+            userName.textContent = user ? user : "";
+        }
+    }); 
+    </script>
+</body>
+</html>

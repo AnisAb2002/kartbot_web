@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/style.css">
+    <title>KartBot - Scores</title>
+</head>
+
+<body class="bg-damier">
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../index.html"><img src="../img/kartbot_logo_black.png" alt="logo"></a>
+        </div>
+
+        <ul class="menu">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="./stats.html">Stats</a></li>
+            <li><a class="active" href="./scores.html">Scores</a></li>
+            <li><a href="./regles.html">Règles</a></li>
+            <li><a href="./circuit.html">Circuit</a></li>
+        </ul>
+
+        <div class="profile">
+            <span id="userName"></span>
+            <a href="./connexion.html">
+                <img src="../img/profil.png" alt="profil">
+            </a>
+        </div>
+    </nav>
+
+    <main style="
+        margin-top:120px;
+        width:80%;
+        margin-left:auto;
+        margin-right:auto;
+        color:white;
+
+        background: rgba(0,0,0,0.85);
+        padding:30px;
+        border-radius:12px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.6);
+    ">
+
+        <h1 style="text-align:center; margin-bottom:40px;">
+            Top Scores
+        </h1>
+
+        <div id="scoresContainer"></div>
+
+    </main>
+
+    <script type="module" src="../scripts/scores.js"></script>
+
+</body>
+</html>

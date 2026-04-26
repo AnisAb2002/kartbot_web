@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<title>KartBot - Statistiques</title>
+
+<style>
+.stats-container{
+    width: 80%;
+    margin: 120px auto;
+    color: white;
+}
+
+.course{
+    background: rgba(0,0,0,0.9);
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.course h3{
+    margin-bottom: 10px;
+}
+
+.tours{
+    margin-top:10px;
+}
+
+canvas{
+    margin-top:15px;
+    background:white;
+    border-radius:8px;
+}
+</style>
+</head>
+
+<body class="bg-damier">
+
+<nav class="navbar">
+    <div class="logo">
+        <a href="../index.html"><img src="../img/kartbot_logo_black.png"></a>
+    </div>
+
+    <ul class="menu">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a class="active" href="./stats.html">Stats</a></li>
+        <li><a href="./scores.html">Scores</a></li>
+        <li><a href="./regles.html">Règles</a></li>
+        <li><a href="./circuit.html">Circuit</a></li>
+    </ul>
+
+    <div class="profile">
+        <a href="./connexion.html" id="userName"></a>
+        <a href="./connexion.html" class="profile-link">
+            <img src="../img/profil.png">
+        </a>
+    </div>
+</nav>
+
+<div class="stats-container" id="statsContainer"></div>
+
+<script type="module">
+    console.log("stats script chargé");
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIza...",
+    authDomain: "kartbot-p8.firebaseapp.com",
+    projectId: "kartbot-p8",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+/* =========================
+   USER NAVBAR
+========================= */
+const user = localStorage.getItem("user");
+const userName = document.getElementById("userName");
+
+if(userName){
+    userName.textContent = user || "";
+}
+
+/* =========================
+   LOAD COURSES
+========================= */
+
+const container = document.getElementById("statsContainer");
+
+if(!user){
+    container.innerHTML = `<div class="course"><h2>Connecte-toi pour voir tes stats</h2></div>`;
+}else{
+    loadCourses();
+}
+
+async function loadCourses(){
+
+    const querySnapshot = await getDocs(collection(db, "courses"));
+
+    console.log("nb courses:", querySnapshot.size);
+
+    container.innerHTML = "";
+
+    querySnapshot.forEach((docSnap) => {
+
+        const data = docSnap.data();
+
+        console.log("course data:", data);
+
+        // sécurité champ
+        if(!data.pilote_pseudo) return;
+
+        if(data.pilote_pseudo !== user) return;
+
+        createCourseCard(data);
+    });
+}
+
+/* =========================
+   CREATE UI
+========================= */
+
+function createCourseCard(data){
+
+    const div = document.createElement("div");
+    div.className = "course";
+
+    // format date
+    const date = data.date?.toDate();
+    const formattedDate = date 
+        ? date.toLocaleString("fr-FR")
+        : "date inconnue";
+
+    // tours
+    let toursHTML = "";
+    data.detail_tours?.forEach((t, i)=>{
+        toursHTML += `<li>Tour ${i+1} : ${t}</li>`;
+    });
+
+    const canvasId = "chart_" + Math.random().toString(36).substring(2,8);
+
+    div.innerHTML = `
+        <h3>Course du ${formattedDate}</h3>
+
+        <p>Score : ${data.score_final}</p>
+        <p>Collisions : ${data.collisions}</p>
+        <p>Bonus : ${data.bonus_points}</p>
+        <p>Temps total : ${data.temps_total}</p>
+        <p>Meilleur tour : ${data.meilleur_tour}</p>
+
+        <div class="tours">
+            <strong>Tours :</strong>
+            <ul>${toursHTML}</ul>
+        </div>
+
+        <canvas id="${canvasId}" height="100"></canvas>
+    `;
+
+    container.appendChild(div);
+
+    setTimeout(() => {
+        createChart(canvasId, data.historique_distances);
+    }, 0);
+}
+
+/* =========================
+   GRAPH
+========================= */
+
+function createChart(id, data){
+
+    if(!data || data.length === 0){
+        return;
+    }
+
+    // reconstruire les secondes
+    const labels = data.map((_, index) => index);
+    const values = data.map(v => Number(v));
+
+    console.log("labels:", labels);
+    console.log("values:", values);
+
+    const pointColors = values.map(v => v < 5 ? "red" : "black");
+
+    const ctx = document.getElementById(id);
+
+    new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                borderColor: "black",
+                pointBackgroundColor: pointColors,
+                fill: false,
+                tension: 0.3
+            }]
+        },
+        options: {
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: "Secondes"
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: "Distance (cm)"
+                    }
+                }
+            }
+        }
+    });
+}
+
+</script>
+
+</body>
+</html>
