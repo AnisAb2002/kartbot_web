@@ -429,6 +429,7 @@ button{
     color:white;
     text-align: center;
     align-content: center;
+    display: flex;
 }
 
 .projet-container{
@@ -458,6 +459,23 @@ button{
     color: #e0e0e0;
     
 }
+
+
+.video-section{
+    width: 50%;
+    margin: 120px auto;
+    text-align: center;
+    color: white;
+}
+
+.video-kartbot{
+    width: 100%;
+    max-width: 250px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+
 
 .repo-link{
     display: inline-block;
